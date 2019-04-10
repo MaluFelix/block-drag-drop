@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import {CdkDragDrop, moveItemInArray, transferArrayItem, CdkDrag} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-root',
@@ -9,6 +9,22 @@ import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag
 })
 export class AppComponent {
   title = 'items-drag-drop';
+  public show:boolean = false;
+  public buttonName:any = 'Editar';
+
+  ngOnInit () {  }
+
+  toggle() {
+    this.show = !this.show;
+
+    // CHANGE THE NAME OF THE BUTTON.
+    if(this.show)  {
+      this.buttonName = "Salvar";
+    } else {
+      this.buttonName = "Editar";
+    }
+  }
+
 
   movies = [
     'Episode IV - A New Hope',
@@ -37,4 +53,5 @@ export class AppComponent {
                         event.currentIndex);
     }
   }
+  
 }

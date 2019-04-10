@@ -1,32 +1,40 @@
-<div cdkDropListGroup>
+<button (click)="toggle()" id="bt">
+    {{buttonName}}
+</button>
+<br>
+<br>
+<div cdkDropListGroup  > 
   <div class="example-container">
     <div
-      cdkDropList
+      cdkDropList [cdkDropListDisabled]="!show"
       [cdkDropListData]="movies"
       class="example-list"
-      
       (cdkDropListDropped)="drop($event)">
-      <div class="example-box" *ngFor="let item of movies" cdkDrag>{{item}}</div>
+      <div class="example-box cdk-drag-disabled" cdkDrag *ngFor="let item of movies">{{item}}
+      </div>
     </div>
   </div>
 
   <div class="example-container">
     <div
-      cdkDropList
+      cdkDropList [cdkDropListDisabled]="!show"
       [cdkDropListData]="movies2"
       class="example-list"
       (cdkDropListDropped)="drop($event)">
-      <div class="example-box" *ngFor="let item of movies2" cdkDrag>{{item}}</div>
+      <div class="example-box" cdkDrag *ngFor="let item of movies2">{{item}}
+      </div>
     </div>
   </div>
 
   <div class="example-container">
     <div
-      cdkDropList
+      cdkDropList [cdkDropListDisabled]="!show"
       [cdkDropListData]="movies3"
       class="example-list"
       (cdkDropListDropped)="drop($event)">
-      <div class="example-box" *ngFor="let item of movies3" cdkDrag>{{item}}</div>
+      <div class="example-box" cdkDrag *ngFor="let item of movies3" >{{item}}
+      </div>
     </div>
   </div>
 </div>
+   
